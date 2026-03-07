@@ -1,0 +1,100 @@
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+travel_backend  |     raise exc
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+travel_backend  |     await self.app(scope, receive, _send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+travel_backend  |     await self.simple_response(scope, receive, send, request_headers=headers)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+travel_backend  |     await self.app(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+travel_backend  |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+travel_backend  |     raise exc
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+travel_backend  |     await app(scope, receive, sender)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+travel_backend  |     await self.middleware_stack(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+travel_backend  |     await route.handle(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+travel_backend  |     await self.app(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+travel_backend  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+travel_backend  |     raise exc
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+travel_backend  |     await app(scope, receive, sender)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+travel_backend  |     response = await f(request)
+travel_backend  |                ^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 301, in app
+travel_backend  |     raw_response = await run_endpoint_function(
+travel_backend  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 214, in run_endpoint_function
+travel_backend  |     return await run_in_threadpool(dependant.call, **values)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 37, in run_in_threadpool
+travel_backend  |     return await anyio.to_thread.run_sync(func)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/anyio/to_thread.py", line 63, in run_sync
+travel_backend  |     return await get_async_backend().run_sync_in_worker_thread(
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+travel_backend  |     return await future
+travel_backend  |            ^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+travel_backend  |     result = context.run(func, *args)
+travel_backend  |              ^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/app/app/routers/auth_router.py", line 15, in register_user
+travel_backend  |     return auth_service.register(db, payload)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/app/app/services/auth_service.py", line 13, in register
+travel_backend  |     hashed = hash_password(payload.password)
+travel_backend  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/app/app/utils/auth_utils.py", line 18, in hash_password
+travel_backend  |     return pwd_context.hash(password)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/context.py", line 2258, in hash
+travel_backend  |     return record.hash(secret, **kwds)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 779, in hash
+travel_backend  |     self.checksum = self._calc_checksum(secret)
+travel_backend  |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 591, in _calc_checksum
+travel_backend  |     self._stub_requires_backend()
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2254, in _stub_requires_backend
+travel_backend  |     cls.set_backend()
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2156, in set_backend
+travel_backend  |     return owner.set_backend(name, dryrun=dryrun)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2163, in set_backend
+travel_backend  |     return cls.set_backend(name, dryrun=dryrun)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2188, in set_backend
+travel_backend  |     cls._set_backend(name, dryrun)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2311, in _set_backend
+travel_backend  |     super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2224, in _set_backend
+travel_backend  |     ok = loader(**kwds)
+travel_backend  |          ^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 626, in _load_backend_mixin
+travel_backend  |     return mixin_cls._finalize_backend_mixin(name, dryrun)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 421, in _finalize_backend_mixin
+travel_backend  |     if detect_wrap_bug(IDENT_2A):
+travel_backend  |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 380, in detect_wrap_bug
+travel_backend  |     if verify(secret, bug_hash):
+travel_backend  |        ^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/utils/handlers.py", line 792, in verify
+travel_backend  |     return consteq(self._calc_checksum(secret), chk)
+travel_backend  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  |   File "/usr/local/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 655, in _calc_checksum
+travel_backend  |     hash = _bcrypt.hashpw(secret, config)
+travel_backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+travel_backend  | ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+travel_backend  | INFO:     172.18.0.1:45074 - "GET /docs HTTP/1.1" 200 OK
+travel_backend  | INFO:     172.18.0.1:45074 - "GET /openapi.json HTTP/1.1" 200 OK
+travel_backend  | INFO:     172.18.0.1:45088 - "GET /health HTTP/1.1" 200 OK
+travel_backend  | INFO:     172.18.0.1:45088 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+travel_backend  | INFO:     172.18.0.1:34546 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 OK

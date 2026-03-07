@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath":  "C:\\Users\\NIKHIL\\OneDrive\\Desktop\\Travel\\.venv\\Scripts\\python.exe",
+    "python.locator":  "js",
+    "python.experiments.optOutFrom":  [
+                                          "DisablePET"
+                                      ]
+}
