@@ -14,6 +14,7 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     phone: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    is_admin: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
